@@ -10,14 +10,35 @@
 */
 int fizzbuzz(int n)
 {
-
+	int tracker = 0;
+	for (int i = 0; i < n; i++)
+	{
+		if (i % 15 == 0)
+		{
+			printf("FizzBuzz\n");
+		}
+		else if (i % 5 == 0)
+		{
+			printf("Buzz\n");
+		}
+		else if (i % 3 == 0)
+		{
+			printf("Fizz\n");
+		}
+		else
+		{
+			printf("%d\n", i);
+			tracker++;
+		}
+	}
+	return tracker;
 }
 
 #ifndef TESTING
 int main(void)
 {
-    fizzbuzz(20);
+	fizzbuzz(20);
 
-    return 0;
+	return 0;
 }
 #endif
