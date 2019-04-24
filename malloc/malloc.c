@@ -61,25 +61,13 @@ void mem_copy(void *dest, const void *src, int n)
 void *resize_memory(void *ptr, int old_size, int new_size)
 {
 	char *new_memory = malloc(new_size);
-	char *cast_ptr = (char *)ptr;
-	int i = 0;
 	if (new_size > old_size)
 	{
-		while (i < old_size)
-		{
-			*(new_memory + i) = *(cast_ptr + i);
-			i++;
-		}
-		ptr = new_memory;
+		mem_copy(new_memory, ptr, old_size);
 	}
 	else
 	{
-		while (i < new_size)
-		{
-			*(new_memory + i) = *(cast_ptr + i);
-			i++;
-		}
-		ptr = new_memory;
+		mem_copy(new_memory, ptr, new_size);
 	}
 	return new_memory;
 }
